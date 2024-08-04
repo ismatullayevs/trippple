@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{% block title %}Trippple - Home 01{% endblock title %}</title>
+
+	<link href="{% static 'assets/images/favicon.png' %}" rel="shortcut icon" type="image/x-icon">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link href="{% static 'assets/css/lib/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/fontawesome/css/brands.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/fontawesome/css/solid.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/simple-line-icons/css/simple-line-icons.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/flaticon/css/flaticon.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/animate.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/slick.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/swiper.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/jquery-ui.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/lib/jquery.fancybox.min.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/custom-animate.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+
+	{% block extrahead %}{% endblock extrahead %}
+</head>
+
+<body>
+	{% block content %}
+
+	{% endblock %}
+
+	<!--Scroll to top-->
+	<div class="scroll-to-top scroll-to-target" data-target="html">
+		<span class="icon"><img src="{% static 'assets/images/icons/arrow-up.svg' %}" alt="" title="Go To Top"></span>
+	</div>
+
+	<script src="{% static 'assets/js/lib/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/bootstrap/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/isotope.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/slick.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/appear.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/wow.min.js' %}"></script>
+	<script src="{% static 'assets/js/lib/touchspin.min.js' %}"></script>
+	
+	{% block extrabody %}{% endblock extrabody %}
+	<script src="{% static 'assets/js/custom-script.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    {% include "loader.html" %}
+    <!-- Preloader End -->
+
+    <!-- Main Header-->
+    {% include "header2.html" %}
+    <!--End Main Header -->
+
+
+    <!--Menu Backdrop-->
+    <div class="menu-backdrop"></div>
+
+    <!-- Hidden Navigation Bar -->
+    <div class="hidden-bar">
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+            <div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation"
+                        viewBox="0 0 16 14">
+                        <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+                    </svg></span></div>
+            <div class="nav-logo-box">
+                <!-- logo will be copied here ! -->
+            </div>
+            <!-- .Side-menu -->
+            <nav class="side-menu">
+                <!-- main-menu will be copied here! -->
+            </nav><!-- .side-menu -->
+
+            <div class="links-box clearfix">
+                <div class="clearfix">
+                    <div class="link"><a href="contact.html" class="theme-btn btn-style-one"><span>Login /
+                                Signup</span></a></div>
+                </div>
+            </div>
+
+        </div><!-- / Hidden Bar Wrapper -->
+    </div>
+    <!-- / Hidden Bar -->
+
+
+    <!-- Banner Section -->
+    <section class="inner-banner">
+        <div class="image-layer" style="background-image: url({% static 'assets/images/resources/featured/banner-3.jpg' %});">
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Tour Packages</h1>
+                <div class="bread-crumb">
+                    <ul class="clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current">Tour Packages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Banner Section -->
+
+    <!--Packages Section-->
+    <section class="packages-three">
+        <!--Serach One-->
+        <div class="search-one">
+            <div class="auto-container">
+                <div class="outer">
+                    <div class="search-title"><span>Search for your desired tour package</span></div>
+                    <div class="form-box site-form">
+                        <form method="post" action="index.html">
+                            <div class="row clearfix">
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">Destination</div>
+                                    <div class="field-inner">
+                                        <input type="text" name="field-name" value="" placeholder="Where to go?"
+                                            required>
+                                        <i class="alt-icon fa fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">Start</div>
+                                    <div class="field-inner">
+                                        <input class="datepicker" type="text" name="field-name" value=""
+                                            placeholder="Check in" required>
+                                        <i class="alt-icon fa fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">End</div>
+                                    <div class="field-inner">
+                                        <input class="datepicker" type="text" name="field-name" value=""
+                                            placeholder="Check out" required>
+                                        <i class="alt-icon fa fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">Guest</div>
+                                    <div class="field-inner">
+                                        <input type="text" name="field-name" value="" placeholder="Guests" required>
+                                        <i class="alt-icon fa fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="theme-btn f-btn"><span>Search <i
+                                        class="fa-solid fa-search"></i></span></button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="auto-container">
+            <div class="packages">
+
+                <div class="filter-row">
+                    <div class="clearfix">
+                        <div class="s-info">Showing results of <strong>1 - 9</strong> of <strong>200</strong> items
+                        </div>
+                        <div class="filters clearfix+">
+                            <div class="sort-by">
+                                <div class="drop-list-one">
+                                    <div class="inner clearfix">
+                                        <div class="dropdown-outer open"><a class="btn-box dropdown-toggle"
+                                                id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="true" href="#">Sort <i
+                                                    class="fas fa-angle-down"></i></a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Latest First</a></li>
+                                                <li><a href="#">Price</a></li>
+                                                <li><a href="#">Date: Ascending</a></li>
+                                                <li><a href="#">Date: Descending</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layout-links clearfix">
+                                <a class="active" href="tour-packages.html"><span
+                                        class="fas fa-th-large"></span></a> &ensp; <a href="tour-list.html"><span
+                                        class="fas fa-th-list"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/helsinki.jpg' %}"
+                                            alt="Helsinki"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-1.png' %}" alt=""><span
+                                        class="icon flaticon-adventure"></span></div>
+                                <div class="location">Helsinki</div>
+                                <h5><a href="tour-single.html">Nordic Elegance and Urban Charms</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 5 Days 6 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 12</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">4570 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$399</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/kuala-lumpore.jpg' %}"
+                                            alt="Kuala Lumpore"></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-2.png' %}" alt=""><span
+                                        class="icon flaticon-hiking"></span></div>
+                                <div class="location">Kuala Lumpore</div>
+                                <h5><a href="tour-single.html">Embrace Skylines and Heritage in Kuala Lumpur</a>
+                                </h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 5 Days 6 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 6</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.6</strong> &ensp; <span class="count">7865 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$755</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/maldives.jpg' %}"
+                                            alt="Maldives"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-3.png' %}" alt=""><span
+                                        class="icon flaticon-family"></span></div>
+                                <div class="location">Maldives</div>
+                                <h5><a href="tour-single.html">Unveiling the Serenity of Maldivian Islands</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 6 Days 7 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 4</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">9678 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$469</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/egypt.jpg' %}" alt="Egypt"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-8.png' %}" alt=""><span
+                                        class="icon flaticon-tent-1"></span></div>
+                                <div class="location">Giza</div>
+                                <h5><a href="tour-single.html">Exploring the Ancient Wonders of Giza</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 10 Days 11 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 7</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.6</strong> &ensp; <span class="count">3210 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$679</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/morocco.jpg' %}"
+                                            alt="Morocco"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-9.png' %}" alt=""><span
+                                        class="icon flaticon-temple"></span></div>
+                                <div class="location">Marrakech</div>
+                                <h5><a href="tour-single.html">Unraveling the Charms of Morocco's Vibrant City</a>
+                                </h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 5 Days 6 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 10</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">3210 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$545</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/surin-beach-phuket.jpg' %}"
+                                            alt="Phuket"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-10.png' %}" alt=""><span
+                                        class="icon flaticon-cycling"></span></div>
+                                <div class="location">Phuket</div>
+                                <h5><a href="tour-single.html">The Allure of Thailand's Stunning Phuket</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 6 Days 7 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 4</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.5</strong> &ensp; <span class="count">3210 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$515</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/roma-pizza-rome.jpg' %}"
+                                            alt="Rome Pizza"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-11.png' %}" alt=""><span
+                                        class="icon flaticon-adventure"></span></div>
+                                <div class="location">Rome</div>
+                                <h5><a href="tour-single.html">Savoring Authentic Pizza on Charming Streets</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 3 Days 4 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 5</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">4566 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$225</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/varenna.jpg' %}"
+                                            alt="Varenna"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-12.png' %}" alt=""><span
+                                        class="icon flaticon-hiking"></span></div>
+                                <div class="location">Varenna</div>
+                                <h5><a href="tour-single.html">A Tranquil Escape on Lake Como in Varenna</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 7 Days 8 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 6</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.9</strong> &ensp; <span class="count">8677 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$699</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="tour-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/coron.jpg' %}" alt="Coron"></a>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-13.png' %}" alt=""><span
+                                        class="icon flaticon-family"></span></div>
+                                <div class="location">Coron</div>
+                                <h5><a href="tour-single.html">Tropical Paradise of Pristine Beauty</a></h5>
+                                <div class="info clearfix">
+                                    <div class="duration"><i class="fa-solid fa-clock"></i> 8 Days 9 Nights</div>
+                                    <div class="persons"><i class="fa-solid fa-user"></i> 12</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.6</strong> &ensp; <span class="count">4544 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$645</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="styled-pagination centered">
+                    <ul class="clearfix">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Main Footer-->
+    {% include "footer2.html" %}
+
+</div>
+{% endblock content %}

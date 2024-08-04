@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    {% include "loader.html" %}
+    <!-- Preloader End -->
+
+    <!-- Main Header-->
+    {% include "header2.html" %}
+    <!--End Main Header -->
+
+
+    <!--Menu Backdrop-->
+    <div class="menu-backdrop"></div>
+
+    <!-- Hidden Navigation Bar -->
+    <div class="hidden-bar">
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+            <div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation"
+                        viewBox="0 0 16 14">
+                        <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+                    </svg></span></div>
+            <div class="nav-logo-box">
+                <!-- logo will be copied here ! -->
+            </div>
+            <!-- .Side-menu -->
+            <nav class="side-menu">
+                <!-- main-menu will be copied here! -->
+            </nav><!-- .side-menu -->
+
+            <div class="links-box clearfix">
+                <div class="clearfix">
+                    <div class="link"><a href="contact.html" class="theme-btn btn-style-one"><span>Login /
+                                Signup</span></a></div>
+                </div>
+            </div>
+
+        </div><!-- / Hidden Bar Wrapper -->
+    </div>
+    <!-- / Hidden Bar -->
+
+
+    <!-- Banner Section -->
+    <section class="inner-banner">
+        <div class="image-layer" style="background-image: url({% static 'assets/images/resources/featured/banner-3.jpg' %});">
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Hotels</h1>
+                <div class="bread-crumb">
+                    <ul class="clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current">Hotels</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Banner Section -->
+
+    <!--Hotels Section-->
+    <section class="hotels-section">
+        <!--Serach One-->
+        <div class="search-one">
+            <div class="auto-container">
+                <div class="outer">
+                    <div class="search-title"><span>Search for your desired hotel</span></div>
+                    <div class="form-box site-form">
+                        <form method="post" action="index.html">
+                            <div class="row clearfix">
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">Destination</div>
+                                    <div class="field-inner">
+                                        <input type="text" name="field-name" value="" placeholder="Where to go?"
+                                            required>
+                                        <i class="alt-icon fa fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">Start</div>
+                                    <div class="field-inner">
+                                        <input class="datepicker" type="text" name="field-name" value=""
+                                            placeholder="Check in" required>
+                                        <i class="alt-icon fa fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">End</div>
+                                    <div class="field-inner">
+                                        <input class="datepicker" type="text" name="field-name" value=""
+                                            placeholder="Check out" required>
+                                        <i class="alt-icon fa fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="field-label">Guest</div>
+                                    <div class="field-inner">
+                                        <input type="text" name="field-name" value="" placeholder="Guests" required>
+                                        <i class="alt-icon fa fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="theme-btn f-btn"><span>Search <i
+                                        class="fa-solid fa-search"></i></span></button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="auto-container">
+            <div class="packages">
+
+                <div class="filter-row">
+                    <div class="clearfix">
+                        <div class="s-info">Showing results of <strong>1 - 9</strong> of <strong>200</strong> items
+                        </div>
+                        <div class="filters clearfix+">
+                            <div class="sort-by">
+                                <div class="drop-list-one">
+                                    <div class="inner clearfix">
+                                        <div class="dropdown-outer open"><a class="btn-box dropdown-toggle"
+                                                id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="true" href="#">Sort <i
+                                                    class="fas fa-angle-down"></i></a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Latest First</a></li>
+                                                <li><a href="#">Price</a></li>
+                                                <li><a href="#">Date: Ascending</a></li>
+                                                <li><a href="#">Date: Descending</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layout-links clearfix">
+                                <a class="active" href="tour-packages.html"><span
+                                        class="fas fa-th-large"></span></a> &ensp; <a href="tour-list.html"><span
+                                        class="fas fa-th-list"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/istanbul-beach-hotel.jpg' %}"
+                                            alt="Beach Hotel"></a></div>
+                                <div class="b-title featured"><span>Featured</span></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Istanbul</div>
+                                <h5><a href="hotel-single.html">Istanbul Beach Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">4500 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$550</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/maldives-hotel.jpg' %}"
+                                            alt="Maldives Beach Hotel"></a></div>
+                                <div class="b-title top-rated"><span>Top Rated</span></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Maldives</div>
+                                <h5><a href="hotel-single.html">Maldives Beach Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.9</strong> &ensp; <span class="count">7900 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$650</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/palawan-hotel.jpg' %}"
+                                            alt="Palwan Hotel"></a>
+                                </div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Palawan</div>
+                                <h5><a href="hotel-single.html">Palawan Beachfront Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.5</strong> &ensp; <span class="count">6591 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$245</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/punta-cana-hotel.jpg' %}"
+                                            alt="Punta Cana"></a>
+                                </div>
+                                <div class="b-title top-rated"><span>Top Rated</span></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Punta Cana</div>
+                                <h5><a href="hotel-single.html">Punta Cana Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.6</strong> &ensp; <span class="count">8711 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$439</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/the-bellagio-hotel.jpg' %}"
+                                            alt="The Bellagio"></a></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Las Vegas</div>
+                                <h5><a href="hotel-single.html">The Bellagio</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.7</strong> &ensp; <span class="count">4780 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$345</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/istanbul-mom-hotel.jpg' %}"
+                                            alt="Mom Hotel"></a></div>
+                                <div class="b-title featured"><span>Featured</span></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Istanbul</div>
+                                <h5><a href="hotel-single.html">Istanbul Mom Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.6</strong> &ensp; <span class="count">3210 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$480</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/avista-hideway-hotel.jpg' %}"
+                                            alt="Avista Hideway"></a></div>
+                                <div class="b-title top-rated"><span>Top Rated</span></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Phuket</div>
+                                <h5><a href="hotel-single.html">Avista Hideway Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">2389 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$530</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/the-anam-vietnam-hotel.jpg' %}"
+                                            alt="The Anam"></a></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Vietnam</div>
+                                <h5><a href="hotel-single.html">The Anam Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.8</strong> &ensp; <span class="count">4900 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$459</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="package-block alt col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="hotel-single.html"><img
+                                            src="{% static 'assets/images/resources/destinations/one-eighty-bali-hotel.jpg' %}"
+                                            alt="One Eighty"></a></div>
+                                <div class="b-title featured"><span>Featured</span></div>
+                                <div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="location">Bali</div>
+                                <h5><a href="hotel-single.html">One Eighty Hotel</a></h5>
+                                <div class="bottom-box clearfix">
+                                    <div class="rating"><a href="#" class="theme-btn"><i
+                                                class="fa-solid fa-star"></i>
+                                            <strong>4.7</strong> &ensp; <span class="count">6233 Reviews</span></a>
+                                    </div>
+                                    <div class="price">Start from &ensp;<span class="amount">$450</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="styled-pagination centered">
+                    <ul class="clearfix">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Main Footer-->
+    {% include "footer2.html" %}
+
+</div>
+
+{% endblock content %}

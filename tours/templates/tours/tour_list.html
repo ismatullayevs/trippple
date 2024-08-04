@@ -1,0 +1,613 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+	<div class="page-wrapper">
+
+		<!-- Preloader -->
+		{% include 'loader.html' %}
+		<!-- Preloader End -->
+
+		<!-- Main Header-->
+		{% include "header2.html" %}
+		<!--End Main Header -->
+
+
+		<!--Menu Backdrop-->
+		<div class="menu-backdrop"></div>
+
+		<!-- Hidden Navigation Bar -->
+		<div class="hidden-bar">
+			<!-- Hidden Bar Wrapper -->
+			<div class="hidden-bar-wrapper">
+				<div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation"
+							viewBox="0 0 16 14">
+							<path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+						</svg></span></div>
+				<div class="nav-logo-box">
+					<!-- logo will be copied here ! -->
+				</div>
+				<!-- .Side-menu -->
+				<nav class="side-menu">
+					<!-- main-menu will be copied here! -->
+				</nav><!-- .side-menu -->
+
+				<div class="links-box clearfix">
+					<div class="clearfix">
+						<div class="link"><a href="contact.html" class="theme-btn btn-style-one"><span>Login /
+									Signup</span></a></div>
+					</div>
+				</div>
+
+			</div><!-- / Hidden Bar Wrapper -->
+		</div>
+		<!-- / Hidden Bar -->
+
+		<!-- Banner Section -->
+		<section class="inner-banner">
+			<div class="image-layer" style="background-image: url({% static 'assets/images/resources/featured/banner-4.jpg' %});">
+			</div>
+			<div class="auto-container">
+				<div class="content-box">
+					<h1>Tour List</h1>
+					<div class="bread-crumb">
+						<ul class="clearfix">
+							<li><a href="index.html">Home</a></li>
+							<li class="current">Tour List</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--End Banner Section -->
+
+		<!--Sidebar Container-->
+		<div class="sidebar-container">
+			<div class="auto-container">
+				<div class="row clearfix">
+					<!--Sidebar Side-->
+					<div class="sidebar-side col-xl-4 col-lg-5 col-md-12 col-sm-12">
+						<div class="sidebar-inner">
+							<!--Widget-->
+							<div class="sb-widget s-widget">
+								<div class="w-inner">
+									<div class="s-title"><i class="fa-solid fa-caret-right"></i>
+										<h4>Search Packages</h4>
+									</div>
+									<div class="form-box site-form">
+										<form method="post" action="index.html">
+											<div class="form-group">
+												<div class="field-inner">
+													<select name="field-name" class="custom-select">
+														<option>Tour</option>
+														<option>Enchanting Europe, A Journey through Time and Culture
+														</option>
+														<option>Unveiling the Idyllic Paradise of Southeast Asia
+														</option>
+														<option>Exploring Nature's Best in the American National Parks
+														</option>
+														<option>An African Expedition into the Heart of the Savannah
+														</option>
+														<option>A Fascinating Expedition to Egypt and Jordan</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="field-inner">
+													<input class="datepicker" type="text" name="field-name" value=""
+														placeholder="Check in" required>
+													<i class="alt-icon fa fa-calendar-alt"></i>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="field-inner">
+													<input class="datepicker" type="text" name="field-name" value=""
+														placeholder="Check out" required>
+													<i class="alt-icon fa fa-calendar-alt"></i>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="field-inner">
+													<input type="text" name="field-name" value="" placeholder="Guests"
+														required>
+													<i class="alt-icon fa fa-user"></i>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="field-inner">
+													<button type="submit" class="theme-btn f-btn"><span>Search <i
+																class="fa-solid fa-search"></i></span></button>
+												</div>
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+
+							<!--Widget-->
+							<div class="sb-widget p-widget">
+								<div class="w-inner">
+									<div class="s-title"><i class="fa-solid fa-caret-right"></i>
+										<h4>Pricing</h4>
+									</div>
+									<div class="range-slider">
+										<div class="price-range-slider"></div>
+										<div class="clearfix">
+											<div class="pull-left">
+												<div class="input">$<input type="text"
+														class="property-amount property-amount-1" name="field-name"
+														readonly></div>
+											</div>
+											<div class="pull-right">
+												<div class="input">$<input type="text"
+														class="property-amount property-amount-2" name="field-name"
+														readonly></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--Widget-->
+							<div class="sb-widget cbf-widget rating-widget">
+								<div class="w-inner">
+									<div class="s-title"><i class="fa-solid fa-caret-right"></i>
+										<h4>Rating</h4>
+									</div>
+									<ul>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-1"> <label
+													for="cb-1"><span class="rating"><i class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i></span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-2"> <label
+													for="cb-2"><span class="rating"><i class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="empty fa fa-star"></i></span><span class="txt">and
+														Above</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-3"> <label
+													for="cb-3"><span class="rating"><i class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="empty fa fa-star"></i><i
+															class="empty fa fa-star"></i></span><span class="txt">and
+														Above</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-4"> <label
+													for="cb-4"><span class="rating"><i class="fa-solid fa-star"></i><i
+															class="fa-solid fa-star"></i><i
+															class="empty fa fa-star"></i><i
+															class="empty fa fa-star"></i><i
+															class="empty fa fa-star"></i></span><span class="txt">and
+														Above</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-5"> <label
+													for="cb-5"><span class="rating"><i class="fa-solid fa-star"></i><i
+															class="empty fa fa-star"></i><i
+															class="empty fa fa-star"></i><i
+															class="empty fa fa-star"></i><i
+															class="empty fa fa-star"></i></span><span class="txt">and
+														Above</span></label></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<!--Widget-->
+							<div class="sb-widget cbf-widget">
+								<div class="w-inner">
+									<div class="s-title"><i class="fa-solid fa-caret-right"></i>
+										<h4>Tour Type</h4>
+									</div>
+									<ul>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-6"><label
+													for="cb-6"><span class="txt">Adventure</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-7"><label
+													for="cb-7"><span class="txt">Hiking</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-8"><label
+													for="cb-8"><span class="txt">Romance</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-9"><label
+													for="cb-9"><span class="txt">Culture</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-10"><label
+													for="cb-10"><span class="txt">City
+														Tour</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-11"><label
+													for="cb-11"><span class="txt">History</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-12"><label
+													for="cb-12"><span class="txt">Beach
+														Tour</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-13"><label
+													for="cb-13"><span class="txt">Sports Tour</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-14"><label
+													for="cb-14"><span class="txt">Hiking</span></label></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<!--Widget-->
+							<div class="sb-widget cbf-widget">
+								<div class="w-inner">
+									<div class="s-title"><i class="fa-solid fa-caret-right"></i>
+										<h4>Location</h4>
+									</div>
+									<ul>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-15"><label
+													for="cb-15"><span class="txt">New
+														York</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-16"><label
+													for="cb-16"><span class="txt">London</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-17"><label
+													for="cb-17"><span class="txt">Paris</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-18"><label
+													for="cb-18"><span class="txt">Muscat</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-19"><label
+													for="cb-19"><span class="txt">Dhaka</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-20"><label
+													for="cb-20"><span class="txt">Kolkata</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-21"><label
+													for="cb-21"><span class="txt">Chottogram</span></label></div>
+										</li>
+										<li>
+											<div class="cb-block"><input type="checkbox" id="cb-22"><label
+													for="cb-22"><span class="txt">Dubai</span></label></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<!--Content Side-->
+					<div class="content-side col-xl-8 col-lg-7 col-md-12 col-sm-12">
+						<div class="content-inner">
+
+							<div class="filter-row">
+								<div class="clearfix">
+									<div class="s-info">Showing results of <strong>1 - 9</strong> of
+										<strong>200</strong> items
+									</div>
+									<div class="filters clearfix+">
+										<div class="sort-by">
+											<div class="drop-list-one">
+												<div class="inner clearfix">
+													<div class="dropdown-outer open"><a class="btn-box dropdown-toggle"
+															id="dropdownMenu1" data-toggle="dropdown"
+															aria-haspopup="true" aria-expanded="true" href="#">Sort <i
+																class="fas fa-angle-down"></i></a>
+														<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+															<li><a href="#">Latest First</a></li>
+															<li><a href="#">Price</a></li>
+															<li><a href="#">Date: Ascending</a></li>
+															<li><a href="#">Date: Descending</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="layout-links clearfix">
+											<a href="tour-packages.html"><span class="fas fa-th-large"></span></a>
+											&ensp; <a class="active" href="tour-list.html"><span
+													class="fas fa-th-list"></span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="packages">
+								<!--Block-->
+								<div class="package-block-two">
+									<div class="inner-box">
+										<div class="image-box">
+											<div class="image"><a href="tour-single.html"><img
+														src="{% static 'assets/images/resources/destinations/tours/maldives.jpg' %}"
+														alt="Maldives"></a></div>
+											<div class="image-layer"
+												style="background-image: url({% static 'assets/images/resources/destinations/tours/maldives.jpg' %});">
+											</div>
+											<div class="b-title featured"><span>Featured</span></div>
+											<div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a>
+											</div>
+											<div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-1.png' %}" alt=""><span
+													class="icon flaticon-adventure"></span></div>
+										</div>
+										<div class="content-box">
+
+											<div class="loc-rat clearfix">
+												<div class="location">Maldives</div>
+												<div class="rating"><a href="#" class="theme-btn"><i
+															class="fa-solid fa-star"></i>
+														<strong>4.8</strong> &ensp;
+														<span class="count">8788 Reviews</span></a></div>
+											</div>
+											<h5><a href="tour-single.html">Serenity in the Maldives</a></h5>
+											<p class="trippple-text">A Tropical Paradise Retreat"
+												Description: Surrender to the tranquility of the Seychelles, where white
+												sandy beaches,
+												turquoise waters, and lush landscapes await. Luxuriate in exclusive
+												resorts, indulge in spa
+												retreats ...</p>
+											<div class="bottom-box clearfix">
+												<div class="duration"><i class="fa-solid fa-clock"></i> 5 Days 6 Nights
+												</div>
+												<div class="price">Start from &ensp;<span class="amount">$465</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Block-->
+								<div class="package-block-two">
+									<div class="inner-box">
+										<div class="image-box">
+											<div class="image"><a href="tour-single.html"><img
+														src="{% static 'assets/images/resources/destinations/tours/rome.jpg' %}"
+														alt="Rome"></a></div>
+											<div class="image-layer"
+												style="background-image: url({% static 'assets/images/resources/destinations/tours/rome.jpg' %});">
+											</div>
+											<div class="b-title top-rated"><span>Top Rated</span></div>
+											<div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a>
+											</div>
+											<div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-2.png' %}" alt=""><span
+													class="icon flaticon-hiking"></span></div>
+										</div>
+										<div class="content-box">
+
+											<div class="loc-rat clearfix">
+												<div class="location">Rome</div>
+												<div class="rating"><a href="#" class="theme-btn"><i
+															class="fa-solid fa-star"></i>
+														<strong>4.6</strong> &ensp;
+														<span class="count">7767 Reviews</span></a></div>
+											</div>
+											<h5><a href="tour-single.html">A Journey through History and Culture</a>
+											</h5>
+											<p class="trippple-text">Embark on a captivating journey through Rome's
+												ancient ruins and iconic
+												landmarks. Discover the Colosseum, Vatican City, and the Trevi Fountain
+												while savoring
+												delectable Italian cuisine ...</p>
+											<div class="bottom-box clearfix">
+												<div class="duration"><i class="fa-solid fa-clock"></i> 3 Days 4 Nights
+												</div>
+												<div class="price">Start from &ensp;<span class="amount">$499</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Block-->
+								<div class="package-block-two">
+									<div class="inner-box">
+										<div class="image-box">
+											<div class="image"><a href="tour-single.html"><img
+														src="{% static 'assets/images/resources/destinations/tours/morocco.jpg' %}"
+														alt="Morocco"></a></div>
+											<div class="image-layer"
+												style="background-image: url({% static 'assets/images/resources/destinations/tours/morocco.jpg' %});">
+											</div>
+											<div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a>
+											</div>
+											<div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-3.png' %}" alt=""><span
+													class="icon flaticon-family"></span></div>
+										</div>
+										<div class="content-box">
+
+											<div class="loc-rat clearfix">
+												<div class="location">Cazablanca</div>
+												<div class="rating"><a href="#" class="theme-btn"><i
+															class="fa-solid fa-star"></i>
+														<strong>4.7</strong> &ensp;
+														<span class="count">8455 Reviews</span></a></div>
+											</div>
+											<h5><a href="tour-single.html">From Ancient Medina to Modern
+													Cosmopolitan</a></h5>
+											<p class="trippple-text">Discover the allure of Casablanca, where the Old
+												Medina and modern
+												architecture blend harmoniously. Embrace the city's unique blend of
+												North African charm and
+												cosmopolitan flair ...</p>
+											<div class="bottom-box clearfix">
+												<div class="duration"><i class="fa-solid fa-clock"></i> 5 Days 6 Nights
+												</div>
+												<div class="price">Start from &ensp;<span class="amount">$399</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Block-->
+								<div class="package-block-two">
+									<div class="inner-box">
+										<div class="image-box">
+											<div class="image"><a href="tour-single.html"><img
+														src="{% static 'assets/images/resources/destinations/tours/egypt.jpg' %}"
+														alt="Egypt"></a></div>
+											<div class="image-layer"
+												style="background-image: url({% static 'assets/images/resources/destinations/tours/egypt.jpg' %});">
+											</div>
+											<div class="b-title top-rated"><span>Top Rated</span></div>
+											<div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a>
+											</div>
+											<div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-8.png' %}" alt=""><span
+													class="icon flaticon-tent-1"></span></div>
+										</div>
+										<div class="content-box">
+
+											<div class="loc-rat clearfix">
+												<div class="location">Egypt</div>
+												<div class="rating"><a href="#" class="theme-btn"><i
+															class="fa-solid fa-star"></i>
+														<strong>4.5</strong> &ensp;
+														<span class="count">6988 Reviews</span></a></div>
+											</div>
+											<h5><a href="tour-single.html">Exploring the World's Best Pizza Hotspots</a>
+											</h5>
+											<p class="trippple-text">Embark on a journey through time and marvel at the
+												enigmatic wonders of the Giza Pyramids, an extraordinary tour attraction
+												that beckons adventurers and history enthusiasts from around the globe.
+												Located just ...</p>
+											<div class="bottom-box clearfix">
+												<div class="duration"><i class="fa-solid fa-clock"></i> 4 Days 5 Nights
+												</div>
+												<div class="price">Start from &ensp;<span class="amount">$275</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Block-->
+								<div class="package-block-two">
+									<div class="inner-box">
+										<div class="image-box">
+											<div class="image"><a href="tour-single.html"><img
+														src="{% static 'assets/images/resources/destinations/tours/varenna.jpg' %}"
+														alt="Varenna"></a></div>
+											<div class="image-layer"
+												style="background-image: url({% static 'assets/images/resources/destinations/tours/varenna.jpg' %});">
+											</div>
+											<div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a>
+											</div>
+											<div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-9.png' %}" alt=""><span
+													class="icon flaticon-temple"></span></div>
+										</div>
+										<div class="content-box">
+
+											<div class="loc-rat clearfix">
+												<div class="location">Varenna</div>
+												<div class="rating"><a href="#" class="theme-btn"><i
+															class="fa-solid fa-star"></i>
+														<strong>4.9</strong> &ensp;
+														<span class="count">4566 Reviews</span></a></div>
+											</div>
+											<h5><a href="tour-single.html">Lakeside Serenity; A Tranquil Escape on Lake
+													Como</a></h5>
+											<p class="trippple-text">Nestled along the picturesque Lake Como, Varenna
+												offers breathtaking views
+												and a peaceful ambiance. Explore the quaint streets, indulge in lakeside
+												dining, and bask in the
+												serene beauty of this idyllic Italian ...</p>
+											<div class="bottom-box clearfix">
+												<div class="duration"><i class="fa-solid fa-clock"></i> 7 Days 8 Nights
+												</div>
+												<div class="price">Start from &ensp;<span class="amount">$525</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Block-->
+								<div class="package-block-two">
+									<div class="inner-box">
+										<div class="image-box">
+											<div class="image"><a href="tour-single.html"><img
+														src="{% static 'assets/images/resources/destinations/tours/bangkok.jpg' %}"
+														alt="Bangkok"></a></div>
+											<div class="image-layer"
+												style="background-image: url({% static 'assets/images/resources/destinations/tours/bangkok.jpg' %});">
+											</div>
+											<div class="b-title featured"><span>Featured</span></div>
+											<div class="fav-btn"><a href="#"><span class="far fa-heart"></span></a>
+											</div>
+											<div class="p-icon"><img src="{% static 'assets/images/icons/t-icon-10.png' %}"
+													alt=""><span class="icon flaticon-cycling"></span></div>
+										</div>
+										<div class="content-box">
+
+											<div class="loc-rat clearfix">
+												<div class="location">Bangkok</div>
+												<div class="rating"><a href="#" class="theme-btn"><i
+															class="fa-solid fa-star"></i>
+														<strong>4.6</strong> &ensp;
+														<span class="count">9236 Reviews</span></a></div>
+											</div>
+											<h5><a href="tour-single.html">Vibrant Bangkok, A Fusion of Culture and
+													Cuisine</a></h5>
+											<p class="trippple-text">Experience the lively spirit of Bangkok as you
+												venture through bustling
+												markets, ornate temples, and vibrant street food scenes. Discover the
+												city's rich cultural
+												heritage and immerse ...</p>
+											<div class="bottom-box clearfix">
+												<div class="duration"><i class="fa-solid fa-clock"></i> 5 Days 6 Nights
+												</div>
+												<div class="price">Start from &ensp;<span class="amount">$399</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="styled-pagination">
+								<ul class="clearfix">
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!--Main Footer-->
+		{% include "footer2.html" %}
+
+	</div>
+
+{% endblock content %}
