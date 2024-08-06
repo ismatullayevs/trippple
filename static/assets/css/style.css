@@ -987,8 +987,18 @@ form label.error{
 }
 
 .main-header .main-box .logo-box .logo{
-    position: relative;
-    display: block;
+  position: relative;
+}
+
+.main-header .main-box .logo-box .logo a {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #333 !important;
+  font-weight: 700;
+  font-size: 1.7em;
 }
 
 .main-header .main-box .logo-box .logo img {
