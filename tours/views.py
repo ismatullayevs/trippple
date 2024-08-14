@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
+from .models import Tour
 
-# Create your views here.
+
+class TourDetailView(DetailView):
+    model = Tour
+    template_name = 'tours/tour_detail.html'
+    context_object_name = 'tour'

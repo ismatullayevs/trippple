@@ -77,23 +77,23 @@
 
 							<div class="sp-header">
 								<div class="loc-rat clearfix">
-									<div class="location">Phuket</div>
+									<div class="location">{{ tour.destination.city }}</div>
 									<div class="rating"><a href="#" class="theme-btn"><i class="fa-solid fa-star"></i>
 											<strong>4.8</strong>   <span class="count">4233 Reviews</span></a></div>
 									<div class="add-fav"><a href="#"><i class="far fa-heart"></i> Add to Wishlist</a>
 									</div>
 								</div>
-								<h1>The Allure of Thailand's Stunning Phuket</h1>
+								<h1>{{ tour.name }}</h1>
 								<div class="info clearfix">
-									<div class="duration"><i class="fa-solid fa-clock"></i> 4 Days 5 Nights</div>
-									<div class="persons"><i class="fa-solid fa-user"></i> 12</div>
+									<div class="duration"><i class="fa-solid fa-clock"></i> {{ tour.duration }} Days {{ tour.duration|add:"1" }} Nights</div>
+									<div class="persons"><i class="fa-solid fa-user"></i> {{ tour.max_participants }}</div>
 								</div>
 							</div>
 
 							<div class="upper-content">
 								<div class="text-content">
 									<h3>Tour Details</h3>
-									<p>Escape to the tropical haven of Phuket, Thailand's largest island, where
+									{% comment %} <p>Escape to the tropical haven of Phuket, Thailand's largest island, where
 										breathtaking landscapes,
 										pristine beaches, and vibrant culture await. This enchanting tour offers a
 										perfect blend of
@@ -116,29 +116,16 @@
 										bustling local markets, and experience traditional Thai cuisine.</p>
 									<p>Whether you seek relaxation on pristine shores or thrill-seeking adventures in
 										the sea, Phuket's
-										captivating beauty will leave you with cherished memories for a lifetime.</p>
+										captivating beauty will leave you with cherished memories for a lifetime.</p> {% endcomment %}
+									<p>
+										{{ tour.description }}
+									</p>
 									<br>
 									<h5>Highlights</h5>
 									<ul class="styled-list-one">
-										<li>Explore the best beaches of Phuket, from lively Patong to serene Kata and
-											Karon.
-											Discover the exotic underwater world through snorkeling or scuba diving at
-											Phi Phi Islands.</li>
-										<li>Cruise through Phang Nga Bay to see the famous James Bond Island and
-											stunning limestone
-											formations.</li>
-										<li>Visit iconic temples, such as the Big Buddha and Wat Chalong, to experience
-											Thai spiritual
-											traditions.</li>
-										<li>Delight your taste buds with authentic Thai cuisine at local restaurants and
-											street food
-											vendors.</li>
-										<li>Enjoy free time for leisure, relaxation, and optional activities to tailor
-											the tour to your
-											preferences.</li>
-										<li>Experience the vibrant nightlife in Patong with a mix of bars, restaurants,
-											and entertainment
-											venues.</li>
+										{% for highlight in tour.highlights.all %}
+											<li>{{ highlight }}</li>
+										{% endfor %}
 									</ul>
 								</div>
 								<div class="basic-info">
@@ -147,58 +134,33 @@
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Destination</div>
-										<div class="i-content">Phuket</div>
+										<div class="i-content">{{ tour.destination.city }}</div>
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Departure</div>
-										<div class="i-content">Muscat International Airport, Muscat</div>
+										<div class="i-content">{{ tour.info.departure }}</div>
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Departure Time</div>
-										<div class="i-content">03.00 Pm GMT</div>
+										<div class="i-content">{{ tour.info.departure_time }}</div>
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Return Time</div>
-										<div class="i-content">8.00 AM GMT</div>
+										<div class="i-content">{{ tour.info.return_time }}</div>
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Language</div>
-										<div class="i-content">English, Thai</div>
+										<div class="i-content">{{ tour.destination.info.languages }}</div>
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Included</div>
 										<div class="i-content">
 											<ul class="styled-list-two">
-												<li>Accommodation: Luxurious beachfront resort accommodation during the
-													entire tour, providing
-													comfort and relaxation.</li>
-												<li>Transportation: Airport transfers and all transportation within
-													Phuket, ensuring a
-													hassle-free journey.</li>
-												<li>Island-Hopping Excursions: Guided tours to explore the beautiful
-													beaches of Patong, Kata,
-													Karon, and the enchanting Phi Phi Islands.</li>
-												<li>Phang Nga Bay Cruise: A scenic boat trip to marvel at the iconic
-													James Bond Island and
-													unique limestone formations.</li>
-												<li>Cultural Experiences: Visits to significant temples like the Big
-													Buddha and Wat Chalong,
-													offering insights into Thai spiritual traditions.</li>
-												<li>Authentic Thai Cuisine: Enjoy mouthwatering Thai dishes at local
-													restaurants and street food
-													vendors, providing a delightful culinary experience.</li>
-												<li>English-Speaking Guide: Knowledgeable guides to accompany you
-													throughout the tour, providing
-													valuable insights and assistance.</li>
-												<li>All Entrance Fees: Admission fees to various attractions and
-													landmarks, making the journey
-													hassle-free.</li>
-												<li>Free Time: Ample leisure time to relax, explore independently, or
-													participate in optional
-													activities as per personal preferences.</li>
-												<li>Support: 24/7 customer support, ensuring you have a smooth and
-													enjoyable travel experience.
-												</li>
+												{% for inclusion in tour.info.inclusions.all %}
+													<li>
+														{{ inclusion }}
+													</li>
+												{% endfor %}
 											</ul>
 										</div>
 									</div>
@@ -206,27 +168,11 @@
 										<div class="i-title">Not Included</div>
 										<div class="i-content">
 											<ul class="styled-list-three">
-												<li>International Flights: Airfare to and from Phuket is not included,
-													giving you the
-													flexibility to book flights according to your convenience.</li>
-												<li>Travel Insurance: Participants are encouraged to arrange their
-													travel insurance to cover
-													unforeseen events and emergencies.</li>
-												<li>Meals and Beverages: Meals and beverages not specified in the
-													itinerary are not included in
-													the tour package.</li>
-												<li>Personal Expenses: Expenses such as souvenirs, laundry, telephone
-													calls, and additional
-													activities beyond the itinerary are not covered.</li>
-												<li>Gratuities: Tipping for guides, drivers, and hotel staff is not
-													included and is at the
-													discretion of the traveler.</li>
-												<li>Optional Activities: Costs associated with optional activities and
-													excursions not mentioned
-													in the itinerary are the responsibility of the traveler.</li>
-												<li>Visa Fees: Any fees related to visa processing or entry permits are
-													not included in the tour
-													package.</li>
+												{% for exclusion in tour.info.exclusions.all %}
+													<li>
+														{{ exclusion }}
+													</li>
+												{% endfor %}
 											</ul>
 										</div>
 									</div>
