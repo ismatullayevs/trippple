@@ -3,8 +3,11 @@
 @import url('sections/variables.css');
 @import url('sections/fonts.css');
 @import url('sections/global-settings.css');
-
 /* Preloader */
+
+.fa-regular {
+  font-family: 'Font Awesome 6 Free Regular';
+}
 
 .handle-preloader{
   background-color:var(--primary-color);
@@ -8700,11 +8703,11 @@ body.visible-sidebar{
   margin-bottom: 0;
 }
 
-.styled-list-one{
+.tour-description ul {
   margin-bottom: 20px;
 }
 
-.styled-list-one li{
+.tour-description ul li{
     position: relative;
     padding-left: 35px;
     line-height: 1.70em;
@@ -8712,11 +8715,11 @@ body.visible-sidebar{
     margin-bottom: 10px;
 }
 
-.styled-list-one li:last-child{
+.tour-description ul li:last-child{
   margin-bottom: 0;
 }
 
-.styled-list-one li:before{
+.tour-description ul li:before{
   content: "\f178";
   font-family: 'Font Awesome 6 Free';
   font-weight: 400;
@@ -8729,10 +8732,12 @@ body.visible-sidebar{
   color: var(--primary-color);
 }
 
+.list-two-parent ul,
 .styled-list-two{
   margin-bottom: 20px;
 }
 
+.list-two-parent ul li,
 .styled-list-two li{
     position: relative;
     padding-left: 35px;
@@ -8741,10 +8746,12 @@ body.visible-sidebar{
     margin-bottom: 10px;
 }
 
+.list-two-parent ul li:last-child,
 .styled-list-two li:last-child{
   margin-bottom: 0;
 }
 
+.list-two-parent ul li:before,
 .styled-list-two li:before{
   content: "\f00c";
   font-family: 'Font Awesome 6 Free';
@@ -8758,10 +8765,12 @@ body.visible-sidebar{
   color: #28ac28;
 }
 
+.list-three-parent ul,
 .styled-list-three{
   margin-bottom: 20px;
 }
 
+.list-three-parent ul li,
 .styled-list-three li{
     position: relative;
     padding-left: 35px;
@@ -8770,10 +8779,12 @@ body.visible-sidebar{
     margin-bottom: 10px;
 }
 
+.list-three-parent ul li:last-child,
 .styled-list-three li:last-child{
   margin-bottom: 0;
 }
 
+.list-three-parent ul li:before,
 .styled-list-three li:before{
   content: "\f00d";
   font-family: 'Font Awesome 6 Free';
@@ -8787,6 +8798,9 @@ body.visible-sidebar{
   color: #cccbcb;
 }
 
+.basic-info .list-one-parent ul,
+.basic-info .list-two-parent ul,
+.basic-info .list-three-parent ul,
 .basic-info .styled-list-one,
 .basic-info .styled-list-two,
 .basic-info .styled-list-three{
@@ -9260,7 +9274,7 @@ body.visible-sidebar{
 
 .t-reviews .reviews .rev-header .rating{
   position: relative;
-  float: right;
+  float: left;
   line-height: 30px;
   color: var(--secondary-color);
   margin-bottom: 20px;
@@ -9278,11 +9292,12 @@ body.visible-sidebar{
 }
 
 .t-reviews .reviews .rev-box .author-info{
+  display: flex;
+  align-items: center;
   position: relative;
   float: left;
   padding-left: 80px;
   min-height: 60px;
-  padding-top: 7px;
 }
 
 .t-reviews .reviews .rev-box .author-info .image{
@@ -10444,6 +10459,8 @@ body.visible-sidebar{
   border-right: none;
 }
 
+.rooms-avail-box .table .list-one-parent ul li,
+.rooms-avail-box .table .list-two-parent ul li,
 .rooms-avail-box .table .styled-list-one li,
 .rooms-avail-box .table .styled-list-two li,
 .rooms-avail-box .table .un-styled-list li{
@@ -10451,11 +10468,15 @@ body.visible-sidebar{
   margin-bottom: 7px;
 }
 
+.rooms-avail-box .table .list-one-parent ul li,
+.rooms-avail-box .table .list-two-parent ul li,
 .rooms-avail-box .table .styled-list-one li,
 .rooms-avail-box .table .styled-list-two li{
   padding-left: 24px;
 }
 
+.rooms-avail-box .table .list-one-parent ul li:before,
+.rooms-avail-box .table .list-two-parent ul li:before,
 .rooms-avail-box .table .styled-list-one li:before,
 .rooms-avail-box .table .styled-list-two li:before{
     font-size: 16px;

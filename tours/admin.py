@@ -1,9 +1,24 @@
 from django.contrib import admin
-from .models import Tour, TourCategory, TourInclusion, TourExclusion, TourHighlight, TourInfo
+from .models import Tour, TourCategory, TourInfo, TourPlan, TourQuestion, TourPicture, TourReview
 
 
 class TourInfoInline(admin.StackedInline):
     model = TourInfo
+    extra = 1
+
+
+class TourPlanInline(admin.StackedInline):
+    model = TourPlan
+    extra = 1
+
+
+class TourQuestionInline(admin.StackedInline):
+    model = TourQuestion
+    extra = 1
+
+
+class TourPictureInline(admin.StackedInline):
+    model = TourPicture
     extra = 1
 
 
@@ -12,7 +27,7 @@ class TourAdmin(admin.ModelAdmin):
     list_display = ['name', 'category', 'price', 'duration', 'destination']
     list_filter = ['category', 'destination']
     search_fields = ['title', 'destination']
-    inlines = [TourInfoInline]
+    inlines = [TourInfoInline, TourPlanInline, TourQuestionInline, TourPictureInline]
 
 
 @admin.register(TourCategory)
@@ -21,19 +36,8 @@ class TourCategoryAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 
-@admin.register(TourInclusion)
-class TourInclusionAdmin(admin.ModelAdmin):
-    list_display = ['description']
-    search_fields = ['description']
-
-
-@admin.register(TourExclusion)
-class TourExclusionAdmin(admin.ModelAdmin):
-    list_display = ['description']
-    search_fields = ['description']
-
-
-@admin.register(TourHighlight)
-class TourHighlightAdmin(admin.ModelAdmin):
-    list_display = ['description']
-    search_fields = ['description']
+@admin.register(TourReview)
+class TourReviewAdmin(admin.ModelAdmin):
+    list_display = ['tour', 'user', 'rating', 'content']
+    list_filter = ['tour', 'rating']
+    search_fields = ['tour', 'user']

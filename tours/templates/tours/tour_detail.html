@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_tags %}
 
 {% block content %}
 	<div class="page-wrapper">
@@ -45,21 +46,23 @@
 
 		<!-- Banner Section -->
 		<div class="tour-single-banner">
-			<div class="image-layer" style="background-image: url({% static 'assets/images/resources/featured/featured-4.jpg' %});">
+			<div class="image-layer" style="background-image: url(/media/{{ tour.image }});">
 			</div>
 			<div class="auto-container">
 				<div class="content-box">
 					<div class="content clearfix">
 						<div class="t-type">
-							<div class="icon"><img src="{% static 'assets/images/icons/t-icon-1.png' %}" alt=""></div>
-							Tour Type <br><strong>Adventure</strong>
+							<div class="icon" style="width: 72px; height: 72px;"><img src="/media/{{ tour.category.background_image }}" alt="">
+							<span class="{{ tour.category.icon_class }}" style="line-height: 72px; text-align: center; font-size: 32px; width: 100%"></span>
+							</div>
+							Tour Type <br><strong>{{ tour.category.name }}</strong>
 						</div>
-						<div class="links">
+						{% comment %} <div class="links">
 							<ul class="clearfix">
 								<li><a href="#">Gallery <i class="far fa-images"></i></a></li>
 								<li><a href="#">Video <i class="far fa-video-camera"></i></a></li>
 							</ul>
-						</div>
+						</div> {% endcomment %}
 					</div>
 				</div>
 			</div>
@@ -91,42 +94,9 @@
 							</div>
 
 							<div class="upper-content">
-								<div class="text-content">
+								<div class="text-content tour-description">
 									<h3>Tour Details</h3>
-									{% comment %} <p>Escape to the tropical haven of Phuket, Thailand's largest island, where
-										breathtaking landscapes,
-										pristine beaches, and vibrant culture await. This enchanting tour offers a
-										perfect blend of
-										relaxation and adventure, making it an ideal getaway for travelers seeking an
-										unforgettable island
-										escape.</p>
-									<p>Upon arrival, you'll be greeted with warm hospitality and transferred to your
-										luxurious beachfront
-										resort.</p>
-									<p>The tour will take you on a journey of exploration, from the stunning beaches of
-										Patong, Kata, and
-										Karon to the lush greenery of Sirinat National Park. Dive into the crystal-clear
-										waters of Phi Phi
-										Islands, renowned for their vibrant coral reefs and marine life, or take a
-										leisurely boat trip to
-										Phang Nga Bay to marvel at the famous James Bond Island and unique limestone
-										formations.</p>
-									<p>In addition to island-hopping, immerse yourself in Thai culture as you visit
-										colorful temples,
-										bustling local markets, and experience traditional Thai cuisine.</p>
-									<p>Whether you seek relaxation on pristine shores or thrill-seeking adventures in
-										the sea, Phuket's
-										captivating beauty will leave you with cherished memories for a lifetime.</p> {% endcomment %}
-									<p>
-										{{ tour.description }}
-									</p>
-									<br>
-									<h5>Highlights</h5>
-									<ul class="styled-list-one">
-										{% for highlight in tour.highlights.all %}
-											<li>{{ highlight }}</li>
-										{% endfor %}
-									</ul>
+									{{ tour.description|safe }}
 								</div>
 								<div class="basic-info">
 									<div class="i-block clearfix">
@@ -154,26 +124,14 @@
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Included</div>
-										<div class="i-content">
-											<ul class="styled-list-two">
-												{% for inclusion in tour.info.inclusions.all %}
-													<li>
-														{{ inclusion }}
-													</li>
-												{% endfor %}
-											</ul>
+										<div class="i-content list-two-parent">
+											{{ tour.info.inclusions|safe }}
 										</div>
 									</div>
 									<div class="i-block clearfix">
 										<div class="i-title">Not Included</div>
-										<div class="i-content">
-											<ul class="styled-list-three">
-												{% for exclusion in tour.info.exclusions.all %}
-													<li>
-														{{ exclusion }}
-													</li>
-												{% endfor %}
-											</ul>
+										<div class="i-content list-three-parent">
+											{{ tour.info.exclusions|safe }}
 										</div>
 									</div>
 								</div>
@@ -183,143 +141,20 @@
 								<h3>Tour Plans</h3>
 								<ul class="accordion-box tp-accordion clearfix">
 									<!--Block-->
-									<li class="accordion block active-block">
-										<div class="acc-btn active"><span class="d-count">Day 1</span> Arrival in Phuket
-											and Patong Beach
-											Exploration<span class="arrow fa fa-angle-down"></span></div>
+									{% for plan in tour.plans.all %}
+									<li class="accordion block {% if plan.day == 1 %}active-block{% endif %}">
+										<div class="acc-btn {% if plan.day == 1 %}active{% endif %}"><span class="d-count">Day {{ plan.day }}</span>
+										{{ plan.title }}	
+										<span class="arrow fa fa-angle-down"></span></div>
 										<div class="acc-content current">
 											<div class="content">
 												<div class="trippple-text">
-													<p>Upon your arrival at Phuket International Airport, our friendly
-														guide will greet you and
-														transfer you to your luxurious beachfront resort in Patong.
-														After check-in and some
-														relaxation, embark on an exciting exploration of Patong Beach,
-														one of the liveliest beaches
-														in Phuket. Stroll along the vibrant promenade, indulge in beach
-														activities, and admire the
-														beautiful sunset. In the evening, experience Patong's vibrant
-														nightlife with a mix of bars,
-														restaurants, and entertainment venues.</p>
-													<ul>
-														<li>Arrival at Phuket International Airport and transfer to the
-															beachfront resort in Patong.
-														</li>
-														<li>Explore Patong Beach, enjoy beach activities, and witness a
-															stunning sunset.</li>
-														<li>Experience the lively nightlife of Patong with a variety of
-															entertainment options.</li>
-													</ul>
+													{{ plan.description|safe }}
 												</div>
 											</div>
 										</div>
 									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn"><span class="d-count">Day 2</span> Phi Phi Islands
-											Snorkeling Adventure<span class="arrow fa fa-angle-down"></span>
-										</div>
-										<div class="acc-content">
-											<div class="content">
-												<div class="trippple-text">
-													<p>Today, set sail for a thrilling adventure to the famous Phi Phi
-														Islands. Dive into the
-														crystal-clear waters to snorkel or scuba dive, exploring the
-														exotic marine life and vibrant
-														coral reefs. Enjoy a delicious beachside lunch on Phi Phi Don,
-														the main island, and relax on
-														the pristine beaches. Marvel at the breathtaking landscapes and
-														limestone cliffs that make
-														Phi Phi Islands a tropical paradise. After a day of exploration,
-														return to the resort in
-														Patong and unwind.</p>
-													<ul>
-														<li>Full-day excursion to the Phi Phi Islands for snorkeling and
-															beach exploration.</li>
-														<li>Witness diverse marine life and stunning coral reefs during
-															snorkeling or scuba diving.
-														</li>
-														<li>Enjoy a delectable beachside lunch on Phi Phi Don Island.
-														</li>
-														<li>Relax and soak in the natural beauty of the Phi Phi Islands
-															before returning to Patong.
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn"><span class="d-count">Day 3</span> Phang Nga Bay Cruise and
-											Cultural
-											Immersion<span class="arrow fa fa-angle-down"></span>
-										</div>
-										<div class="acc-content">
-											<div class="content">
-												<div class="trippple-text">
-													<p>Embark on a memorable cruise to Phang Nga Bay, renowned for its
-														picturesque landscapes and
-														unique limestone formations. Explore James Bond Island, featured
-														in the movie "The Man with
-														the Golden Gun," and be captivated by its stunning beauty. Visit
-														Koh Panyee, a floating
-														fishing village, and immerse yourself in the local culture.
-														After the cruise, visit the
-														iconic Big Buddha and Wat Chalong to experience the spiritual
-														side of Phuket. Delight your
-														taste buds with authentic Thai cuisine at a local restaurant
-														before returning to the resort.
-													</p>
-													<ul>
-														<li>Cruise to Phang Nga Bay to admire its stunning limestone
-															formations and James Bond
-															Island.</li>
-														<li>Visit Koh Panyee, a floating fishing village, and experience
-															the local culture.</li>
-														<li>Explore the spiritual side of Phuket with visits to the Big
-															Buddha and Wat Chalong.</li>
-														<li>Relish in authentic Thai cuisine at a local restaurant for a
-															delightful culinary
-															experience.</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn"><span class="d-count">Day 4</span> Leisure Day and
-											Departure<span class="arrow fa fa-angle-down"></span>
-										</div>
-										<div class="acc-content">
-											<div class="content">
-												<div class="trippple-text">
-													<p>Enjoy a leisurely morning with breakfast at the resort. The day
-														is at your leisure, giving
-														you the freedom to relax on the beach, explore nearby
-														attractions, or indulge in optional
-														activities of your choice. In the afternoon, check out from the
-														resort and transfer to
-														Phuket International Airport for your departure, bringing an end
-														to this unforgettable
-														island paradise experience.</p>
-													<ul>
-														<li>Leisure morning with breakfast at the resort, allowing for
-															relaxation or optional
-															activities.</li>
-														<li>Check-out from the resort and transfer to Phuket
-															International Airport for departure.
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-
+									{% endfor %}
 								</ul>
 							</div>
 
@@ -327,7 +162,7 @@
 								<h3>Map</h3>
 								<div class="map-box">
 									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63230.7149410174!2d98.29248065!3d7.903459599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30503a96a80e1833%3A0x40223bc2c382480!2sPa%20Tong%2C%20Kathu%20District%2C%20Phuket%2C%20Thailand!5e0!3m2!1sen!2som!4v1690982895480!5m2!1sen!2som"
+										src="{{ tour.location }}"
 										allowfullscreen="" loading="lazy"
 										referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -338,104 +173,19 @@
 							<div class="t-faqs">
 								<h3>Frequently Asked Questions</h3>
 								<ul class="accordion-box faqs-accordion clearfix">
+									{% for question in tour.questions.all %}
 									<!--Block-->
-									<li class="accordion block active-block">
-										<div class="acc-btn active">What is the best time to visit Phuket for this
-											tour?<span class="arrow fa fa-plus"></span></div>
-										<div class="acc-content current">
-											<div class="content">
-												<div class="trippple-text">
-													<p>The best time to visit Phuket for this tour is during the dry
-														season, which typically lasts
-														from November to April. During these months, the weather is
-														generally sunny with lower
-														chances of rain, providing ideal conditions for island-hopping
-														and outdoor activities.</p>
-												</div>
-											</div>
-										</div>
-									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn">Are the snorkeling and scuba diving activities suitable for
-											beginners?<span class="arrow fa fa-plus"></span></div>
+									<li class="accordion block {% if forloop.counter == 1 %}active-block{% endif %}">
+										<div class="acc-btn {% if forloop.counter == 1 %}activities.{% endif %}">{{ question.question }}<span class="arrow fa fa-plus"></span></div>
 										<div class="acc-content">
 											<div class="content">
 												<div class="trippple-text">
-													<p>Yes, both snorkeling and scuba diving activities are suitable for
-														beginners. Our
-														experienced guides will provide comprehensive instructions and
-														ensure your safety throughout
-														the excursion. Life jackets and necessary equipment will be
-														provided, making the experience
-														enjoyable for participants of all skill levels.</p>
+													<p>{{ question.answer }}</p>
 												</div>
 											</div>
 										</div>
 									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn">What should I wear when visiting temples in Phuket?<span
-												class="arrow fa fa-plus"></span></div>
-										<div class="acc-content">
-											<div class="content">
-												<div class="trippple-text">
-													<p>When visiting temples, it is essential to dress modestly and
-														respectfully. Both men and
-														women should cover their shoulders and knees. Loose-fitting,
-														comfortable clothing is
-														recommended, and it's a good idea to carry a sarong or scarf to
-														cover up when needed. Please
-														remove your shoes before entering temple buildings as a sign of
-														respect.</p>
-												</div>
-											</div>
-										</div>
-									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn">Can I extend my stay in Phuket after the tour ends?<span
-												class="arrow fa fa-plus"></span></div>
-										<div class="acc-content">
-											<div class="content">
-												<div class="trippple-text">
-													<p>Absolutely! If you wish to extend your stay in Phuket after the
-														tour concludes, we can
-														assist you with making the necessary arrangements. Whether you
-														want to continue relaxing on
-														the beautiful beaches or explore more of Phuket's attractions,
-														our team will be happy to
-														customize your itinerary according to your preferences.</p>
-												</div>
-											</div>
-										</div>
-									</li>
-
-									<!--Block-->
-									<li class="accordion block">
-										<div class="acc-btn">Are meals included in the tour package?<span
-												class="arrow fa fa-plus"></span>
-										</div>
-										<div class="acc-content">
-											<div class="content">
-												<div class="trippple-text">
-													<p>Yes, some meals are included in the tour package. Daily breakfast
-														at the resort and a
-														beachside lunch during the Phi Phi Islands excursion are
-														provided. However, lunches and
-														dinners on other days, as well as any additional snacks or
-														beverages, are not included. This
-														allows you to have the flexibility to explore local restaurants
-														and taste various Thai
-														delicacies during your free time.</p>
-												</div>
-											</div>
-										</div>
-									</li>
-
+									{% endfor %}
 								</ul>
 							</div>
 
@@ -443,70 +193,16 @@
 								<h3>Media Gallery</h3>
 								<div class="images">
 									<ul class="clearfix">
+										{% for picture in tour.pictures.all %}
 										<li>
 											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-1.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-1-thumb.jpg' %}"
-														alt=""></a>
+												href="{{ picture.image.url }}"
+												class="lightbox-image" data-fancybox="SbGallery"><img
+												src="{{ picture.image.url }}"
+												alt=""></a>
 											</div>
 										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-2.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-2-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-3.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-3-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-4.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-4-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-5.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-5-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-6.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-6-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-7.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-7-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
-										<li>
-											<div class="image"><a
-													href="{% static 'assets/images/resources/destinations/hotels/hotel-room-8.jpg' %}"
-													class="lightbox-image" data-fancybox="SbGallery"><img
-														src="{% static 'assets/images/resources/thumbnails/hotel-room-8-thumb.jpg' %}"
-														alt=""></a>
-											</div>
-										</li>
+										{% endfor %}
 									</ul>
 								</div>
 							</div>
@@ -560,206 +256,35 @@
 								</div>
 
 								<div class="reviews">
-
+									{% for review in tour.reviews.all %}
 									<div class="rev-box">
 										<div class="inner">
 											<div class="rev-header clearfix">
-												<h4>Enchanting Island Escape</h4>
 												<div class="rating">
-													<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-														class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-														class="fa-solid fa-star"></i>
+													{% for i in 5|range %}
+													{% if forloop.counter <= review.rating %}
+													<i class="fa-solid fa-star"></i>
+													{% else %}
+													<i class="fa-regular fa-star"></i>
+													{% endif %}
+													{% endfor %}
 												</div>
 											</div>
-											<p class="trippple-text">I cannot begin to express how incredible my
-												experience was on the Island
-												Paradise tour in Phuket! From the moment I arrived, I was greeted with
-												warm smiles and
-												impeccable hospitality. The tour was perfectly balanced, offering a mix
-												of adventure and
-												relaxation. Snorkeling at Phi Phi Islands was a dream come true - the
-												vibrant underwater world
-												left me in awe.</p>
+											<p class="trippple-text">{{ review.content }}</p>
 											<div class="lower clearfix">
 												<div class="author-info">
 													<div class="image"><img
-															src="{% static 'assets/images/resources/thumbnails/reviewer-1.jpg' %}"
-															alt="Review 1"></div>
-													<div class="author-name">David Hustler</div>
-													<div class="designation">Photographer</div>
-												</div>
-												<div class="ld-link">
-													<span class="txt">Was this review helpful?</span>
-													<a href="#" class="l-btn active"><i
-															class="fa-solid fa-thumbs-up"></i><span
-															class="l-count">12</span></a> <a href="#" class="d-btn"><i
-															class="fa-solid fa-thumbs-up"></i><span
-															class="d-count">8</span></a>
+															src="{{ review.user.image.url }}"
+															alt="Review {{ forloop.counter }}"></div>
+													<div class="author-name">{{ review.user.get_full_name }}</div>
 												</div>
 											</div>
 										</div>
 									</div>
-
-									<div class="rev-box">
-										<div class="inner">
-											<div class="rev-header clearfix">
-												<h4>Unforgettable Tropical Getaway</h4>
-												<div class="rating">
-													<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-														class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-														class="fa-solid fa-star"></i>
-												</div>
-											</div>
-											<p class="trippple-text">My trip to Phuket for the Island Paradise tour was
-												an absolute delight!
-												The tour provided everything I could have hoped for and more. The
-												beaches were pristine, and the
-												crystal-clear waters were perfect for swimming and snorkeling. Exploring
-												the limestone
-												formations at Phang Nga Bay was truly breathtaking, and the visit to the
-												Big Buddha and Wat
-												Chalong gave me a profound sense of spirituality.</p>
-											<div class="lower clearfix">
-												<div class="author-info">
-													<div class="image"><img
-															src="{% static 'assets/images/resources/thumbnails/reviewer-2.jpg' %}"
-															alt="Review 2"></div>
-													<div class="author-name">Peter Hazard</div>
-													<div class="designation">Self Employed</div>
-												</div>
-												<div class="ld-link">
-													<span class="txt">Was this review helpful?</span>
-													<a href="#" class="l-btn"><i class="fa-solid fa-thumbs-up"></i><span
-															class="l-count">12</span></a> <a href="#"
-														class="d-btn active"><i class="fa-solid fa-thumbs-up"></i><span
-															class="d-count">6</span></a>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="rev-box">
-										<div class="inner">
-											<div class="rev-header clearfix">
-												<h4>Tropical Adventure of a Lifetime</h4>
-												<div class="rating">
-													<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-														class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-														class="fa-solid fa-star"></i>
-												</div>
-											</div>
-											<p class="trippple-text">What an amazing journey I had on the Island Paradise
-												tour in Phuket! I've
-												traveled to many places, but this tour stands out as one of my
-												favorites. The tour itinerary was
-												thoughtfully crafted, offering a perfect blend of relaxation and
-												exploration. Snorkeling at the
-												Phi Phi Islands felt like swimming in an underwater paradise, and the
-												cruise through Phang Nga
-												Bay was like being in a real-life movie set.</p>
-											<div class="lower clearfix">
-												<div class="author-info">
-													<div class="image"><img
-															src="{% static 'assets/images/resources/thumbnails/reviewer-3.jpg' %}"
-															alt="Review 3"></div>
-													<div class="author-name">Pablo Benjamin</div>
-													<div class="designation">Sr. Engineer</div>
-												</div>
-												<div class="ld-link">
-													<span class="txt">Was this review helpful?</span>
-													<a href="#" class="l-btn active"><i
-															class="fa-solid fa-thumbs-up"></i><span
-															class="l-count">12</span></a> <a href="#" class="d-btn"><i
-															class="fa-solid fa-thumbs-up"></i><span
-															class="d-count">6</span></a>
-												</div>
-											</div>
-										</div>
-									</div>
-
+									{% endfor %}
 									<div class="see-all"><a href="#" class="theme-btn">View All <i
 												class="fa-solid fa-external-link"></i></a></div>
 
-								</div>
-
-								<h3>Add A Review</h3>
-								<div class="add-review">
-									<div class="form-box site-form">
-										<form method="post" action="index.html">
-											<div class="row clearfix">
-												<div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12">
-													<div class="s-rev-option">
-														<span class="ser-ttl">Service</span>
-														<a href="#" class="rat"><i class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i></a>
-													</div>
-												</div>
-												<div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12">
-													<div class="s-rev-option">
-														<span class="ser-ttl">Location</span>
-														<a href="#" class="rat"><i class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i></a>
-													</div>
-												</div>
-												<div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12">
-													<div class="s-rev-option">
-														<span class="ser-ttl">Accomodation</span>
-														<a href="#" class="rat"><i class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i></a>
-													</div>
-												</div>
-												<div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12">
-													<div class="s-rev-option">
-														<span class="ser-ttl">Price</span>
-														<a href="#" class="rat"><i class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i><i
-																class="fa-solid fa-star"></i></a>
-													</div>
-												</div>
-												<div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12">
-													<div class="field-inner">
-														<input type="text" name="field-name" value=""
-															placeholder="Your name" required>
-													</div>
-												</div>
-												<div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12">
-													<div class="field-inner">
-														<input type="email" name="field-name" value=""
-															placeholder="Your email" required>
-													</div>
-												</div>
-												<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12">
-													<div class="field-inner">
-														<input type="text" name="field-name" value=""
-															placeholder="Review title" required>
-													</div>
-												</div>
-												<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12">
-													<div class="field-inner">
-														<textarea name="field-name"
-															placeholder="Start writing your review here"
-															required></textarea>
-													</div>
-												</div>
-												<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12">
-													<button type="submit" class="theme-btn btn-style-one"><span>Submit
-															Review</span></button>
-												</div>
-											</div>
-										</form>
-
-									</div>
 								</div>
 							</div>
 
@@ -774,7 +299,7 @@
 								<div class="inner-box">
 									<div class="t-book-header">
 										<span class="st-txt">Start <br>From</span>
-										<span class="amount">$120</span>
+										<span class="amount">${{ tour.price|add:"0" }}</span>
 										<span class="qty">/ Per Person</span>
 									</div>
 									<div class="lower-box">
